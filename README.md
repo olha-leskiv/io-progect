@@ -1,3 +1,64 @@
+# io-project
+
+Цей проєкт створено з використанням **Next.js**, **TypeScript** та **Tailwind CSS**.
+
+---
+
+## 🚀 Як почати роботу
+
+### 1. Клонування репозиторію
+```bash
+git clone https://github.com/olha-leskiv/io-progect.git
+cd io-progect
+```
+
+### 2. Встановлення залежностей
+```bash
+npm install
+# або
+yarn install
+# або
+pnpm install
+```
+
+### 3. Запуск сервера у режимі розробки
+```bash
+npm run dev
+```
+
+Після цього відкрийте у браузері: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📂 Структура проєкту
+
+```
+io-progect/
+ ├─ src/
+ │   ├─ app/          # App Router (сторінки, layout-и)
+ │   ├─ components/   # React-компоненти
+ │   └─ styles/       # Глобальні стилі
+ ├─ public/           # Статичні файли (зображення, favicon тощо)
+ ├─ package.json      # Налаштування npm/yarn/pnpm
+ └─ tailwind.config.js
+```
+
+---
+
+## 🛠️ Використані технології
+- [Next.js](https://nextjs.org/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [Tailwind CSS](https://tailwindcss.com/)  
+
+---
+
+## 📜 Ліцензія
+Цей проєкт розповсюджується під ліцензією MIT.
+
+
+### Далі стандартна інформація від Next.JsS Installer:
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
