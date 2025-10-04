@@ -3,7 +3,6 @@
 import paths from "@/config/paths";
 import { useCart } from "@/store/cart";
 import Link from "next/link";
-import { toast } from "sonner";
 
 const CartPage = () => {
   const {
