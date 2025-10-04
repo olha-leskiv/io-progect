@@ -1,4 +1,5 @@
 import { CartItem } from "@/types/types";
+import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -31,6 +32,7 @@ export const useCart = create<CartStore>()(
           } else {
             newItems = [...state.items, item];
           }
+          toast.success(`${item.name} added to cart`);
           return {
             items: newItems,
             totalItems: newItems.reduce((acc, it) => acc + it.quantity, 0),
@@ -41,6 +43,7 @@ export const useCart = create<CartStore>()(
       removeItem: (id) =>
         set((state) => {
           const newItems = state.items.filter((i) => i.id !== id);
+          toast.success(`Item removed from the cart`);
           return {
             items: newItems,
             totalItems: newItems.reduce((acc, it) => acc + it.quantity, 0),
@@ -48,13 +51,20 @@ export const useCart = create<CartStore>()(
           };
         }),
 
-      clearCart: () => set({ items: [], totalItems: 0, totalPrice: 0 }),
+      clearCart: () => {
+        toast.success(`Cart cleared`);
+        set({ items: [], totalItems: 0, totalPrice: 0 });
+      },
 
       decreaseQuantity: (id, quantity) =>
         set((state) => {
-          const newItems = state.items.map((i) =>
+          let newItems = state.items.map((i) =>
             i.id === id ? { ...i, quantity: i.quantity - quantity } : i
           );
+          if (newItems.find((i) => i.id === id)?.quantity === 0) {
+            newItems = state.items.filter((i) => i.id !== id);
+            toast.success(`Item removed from the cart`);
+          }
           return {
             items: newItems,
             totalItems: newItems.reduce((acc, it) => acc + it.quantity, 0),
